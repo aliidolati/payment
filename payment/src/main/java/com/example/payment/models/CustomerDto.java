@@ -5,7 +5,8 @@ import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
-public class CustomerDto extends AbstractDto{
+public class CustomerDto {
+    private Long id ;
     private String firstName ;
     private String lastName ;
     private Integer age ;

@@ -21,7 +21,6 @@ public class CustomerConvertor implements BaseConvertor<CustomerDto, Customer> {
         customer.setBalance(customerDto.getBalance());
         customer.setGender(customerDto.getGender());
         customer.setCardNumber(customerDto.getCardNumber());
-        customer.setVersion(customerDto.getVersion());
         return customer;
 
     }
@@ -36,7 +35,6 @@ public class CustomerConvertor implements BaseConvertor<CustomerDto, Customer> {
         customerDto.setBalance(customer.getBalance());
         customerDto.setGender(customer.getGender());
         customerDto.setCardNumber(customer.getCardNumber());
-        customerDto.setVersion(customer.getVersion());
         return customerDto;
     }
 }

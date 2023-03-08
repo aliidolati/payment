@@ -8,11 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService extends AbstractService<CustomersRepository,Customer> {
-    @Autowired
-    CustomersRepository customersRepository ; //ino az ostad bepors : repository to abstract
 
     public boolean withdraw(String cardNumber,Long amount){
-        Customer customer = customersRepository.findByCardNumber(cardNumber) ;
+        Customer customer = repository.findByCardNumber(cardNumber) ;
         if (customer.getBalance() == null) {
             return false ;
 
@@ -24,7 +22,7 @@ public class CustomerService extends AbstractService<CustomersRepository,Custome
         return false ;
     }
     public boolean deposit(String cardNumber , Long amount){
-        Customer customer = customersRepository.findByCardNumber(cardNumber) ;
+        Customer customer = repository.findByCardNumber(cardNumber) ;
         if(customer != null){
             customer.setBalance(customer.getBalance() + amount);
             return true ;

@@ -5,7 +5,8 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class TransactionDto extends AbstractDto{
+public class TransactionDto {
+    private Long id ;
     private Date date ;
     private String senderCardNumber ;
     private String receiverCardNumber ;

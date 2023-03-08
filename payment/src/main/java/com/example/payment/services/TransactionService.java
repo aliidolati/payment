@@ -12,11 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class TransactionService  {
+public class TransactionService extends AbstractService<TransactionRepository ,Transaction> {
     @Autowired
     CustomerService customerService ;
-    @Autowired
-    TransactionRepository transactionRepository ;
     @Transactional(rollbackFor = ServiceException.class)
     public void resolveTransaction(Transaction transaction) throws ServiceException {
         boolean isOkWithdraw = customerService.withdraw(transaction.getSenderCardNumber(), transaction.getAmount()) ;
@@ -27,7 +25,7 @@ public class TransactionService  {
         if (!isOkDeposit) {
             throw new ServiceException("card number not found") ;
         }
-        transactionRepository.save(transaction) ;
+        repository.save(transaction) ;
     }
 
 

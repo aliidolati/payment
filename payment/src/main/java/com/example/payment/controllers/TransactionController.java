@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transaction")
-public class TransactionController extends AbstractController<TransactionDto,Transaction> {
+public class TransactionController extends AbstractController<Transaction ,TransactionDto> {
 }
