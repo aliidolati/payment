@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public class AbstractController<E,D> {
     @Autowired
-    private AbstractService<? extends JpaRepository<E,Long>,E> service ;
+    protected AbstractService<? extends JpaRepository<E,Long>,E> service ;
     @Autowired
-    private BaseConvertor<D, E> converter;
+    protected BaseConvertor<D, E> converter;
     @PostMapping("/")
     @Transactional
     public void add(@RequestBody D d) throws ServiceException {
@@ -29,4 +29,5 @@ public class AbstractController<E,D> {
     public void findById(@PathVariable("id") Long id) throws ServiceException {
         service.findById(id) ;
     }
+
  }

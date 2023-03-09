@@ -2,6 +2,7 @@ package com.example.payment.services;
 
 import com.example.payment.Exceptions.ServiceException;
 import com.example.payment.models.Customer;
+import com.example.payment.models.Transaction;
 import com.example.payment.repostirories.CustomersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,26 +10,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService extends AbstractService<CustomersRepository,Customer> {
 
-    public boolean withdraw(String cardNumber,Long amount){
-        Customer customer = repository.findByCardNumber(cardNumber) ;
-        if (customer.getBalance() == null) {
+    public boolean withdraw(Customer customer,Long amount){
+        if(customer != null && customer.getBalance() >= amount){
+            customer.setBalance(customer.getBalance()-amount);
+            return true ;
+        }else {
+
             return false ;
-
         }
-        if (customer.getBalance() >= amount) {
-            customer.setBalance(customer.getBalance() - amount);
-            return true ;
-        }
-        return false ;
     }
-    public boolean deposit(String cardNumber , Long amount){
-        Customer customer = repository.findByCardNumber(cardNumber) ;
-        if(customer != null){
-            customer.setBalance(customer.getBalance() + amount);
+    public boolean deposit(Customer customer , Long amount){
+        if (customer != null) {
+            customer.setBalance(customer.getBalance()+amount);
             return true ;
-
         }else return false ;
-
     }
 
     @Override
@@ -40,4 +35,5 @@ public class CustomerService extends AbstractService<CustomersRepository,Custome
         }
 
     }
+
 }

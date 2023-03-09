@@ -1,6 +1,7 @@
 package com.example.payment.services;
 
 import com.example.payment.Exceptions.ServiceException;
+import com.example.payment.models.Transaction;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

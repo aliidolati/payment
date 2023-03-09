@@ -13,4 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController extends AbstractController<Transaction ,TransactionDto> {
+    @Autowired
+    private TransactionService transactionService ;
+    @PostMapping("/card-to-card")
+    public void cardToCardByCardNumber(@RequestBody TransactionDto transactionDto) throws ServiceException {
+        transactionService.cardToCardByCardNumber(converter.convertDto(transactionDto));
+    }
+    @PostMapping("/account-to-account")
+    public void cardToCardByAccountNumber(@RequestBody TransactionDto transactionDto)throws ServiceException {
+        transactionService.cardToCardByAccountNumber(converter.convertDto(transactionDto));
+    }
 }

@@ -15,6 +15,7 @@ public class CustomerConvertor implements BaseConvertor<CustomerDto, Customer> {
     public Customer convertDto(CustomerDto customerDto) {
         Customer customer = new Customer();
         customer.setId(customerDto.getId());
+        customer.setAccountNumber(customerDto.getAccountNumber());
         customer.setFirstName(customerDto.getFirstName());
         customer.setLastName(customerDto.getLastName());
         customer.setAge(customerDto.getAge());
@@ -30,6 +31,7 @@ public class CustomerConvertor implements BaseConvertor<CustomerDto, Customer> {
         CustomerDto customerDto = new CustomerDto();
         customerDto.setId(customer.getId());
         customerDto.setFirstName(customer.getFirstName());
+        customerDto.setAccountNumber(customer.getAccountNumber());
         customerDto.setLastName(customer.getLastName());
         customerDto.setAge(customer.getAge());
         customerDto.setBalance(customer.getBalance());

@@ -11,9 +11,9 @@ import java.util.Date;
 public class Transaction extends AbstractEntity {
 
     private Date date ;
-
+    private String senderAccountNumber ;
+    private String receiverAccountNumber ;
     private String senderCardNumber ;
-
     private String receiverCardNumber ;
     private Long amount ;
 

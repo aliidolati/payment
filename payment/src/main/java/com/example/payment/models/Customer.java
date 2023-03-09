@@ -18,6 +18,8 @@ public class Customer extends AbstractEntity {
     @Column(unique = true)
     private String cardNumber ;
     private Long balance ;
+    @Column(unique = true)
+    private String accountNumber ;
     @Enumerated(EnumType.STRING)
     Gender gender ;
 

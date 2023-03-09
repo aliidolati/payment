@@ -12,6 +12,8 @@ public class TransactionConvertor implements BaseConvertor<TransactionDto, Trans
         transaction.setId(transactionDto.getId()) ;
         transaction.setDate(transactionDto.getDate());
         transaction.setAmount(transactionDto.getAmount());
+        transaction.setSenderAccountNumber(transactionDto.getSenderAccountNumber());
+        transaction.setReceiverAccountNumber(transactionDto.getReceiverAccountNumber());
         transaction.setReceiverCardNumber(transactionDto.getReceiverCardNumber());
         transaction.setSenderCardNumber(transactionDto.getSenderCardNumber());
 
@@ -26,6 +28,8 @@ public class TransactionConvertor implements BaseConvertor<TransactionDto, Trans
 //        transactionDto.setInsertTimestamp(transaction.getInsertTimeStamp()); ;
         transactionDto.setDate(transaction.getDate());
         transactionDto.setAmount(transaction.getAmount());
+        transactionDto.setSenderAccountNumber(transaction.getSenderAccountNumber());
+        transactionDto.setReceiverAccountNumber(transaction.getReceiverAccountNumber());
         //transactionDto.setVersion(transaction.getVersion());
         transactionDto.setReceiverCardNumber(transaction.getReceiverCardNumber());
         transactionDto.setSenderCardNumber(transaction.getSenderCardNumber());

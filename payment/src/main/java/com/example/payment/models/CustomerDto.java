@@ -11,6 +11,7 @@ public class CustomerDto {
     private String lastName ;
     private Integer age ;
     private String cardNumber ;
+    private String accountNumber ;
     private Long balance ;
     Gender gender ;
 
